@@ -28,10 +28,15 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.scss$/,
+        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file',
+        loader: 'url',
         query: {
-          name: '[name].[ext]?[hash]'
+          limit: 8192,
+          name: '[name].[ext]?[hash:6]'
         }
       },
       {
@@ -39,7 +44,7 @@ module.exports = {
         loader: "url-loader?limit=10000&minetype=application/font-woff"
       },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
         loader: "file-loader"
       }
     ]
