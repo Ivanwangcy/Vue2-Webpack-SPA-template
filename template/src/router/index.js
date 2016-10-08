@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import HomeView from '../views/HomeView'
+import HomeView from '../views/HomeView.vue'
+import AboutView from '../views/AboutView'
 
 export default new Router({
   model: 'history',

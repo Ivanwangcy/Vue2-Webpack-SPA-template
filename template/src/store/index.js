@@ -8,7 +8,8 @@ Vue.use(Vuex);
 
 // 状态树
 const state = {
-  msg: "Welcome to your Vue.js app!"
+  msg: "Welcome to your Vue.js app!",
+  count: 0
 }
 const store = new Vuex.Store({
   state,
