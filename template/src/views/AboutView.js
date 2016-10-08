@@ -3,7 +3,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: mapGetters([
-    'msg'
+    'count'
   ]),
   methods: mapActions([
     'increment'
@@ -11,7 +11,7 @@ export default {
   render(h){
     return (
       <div>
-        { this.count }
+        <p style={{fontSize: '35px', color: 'pink', margin:'0'}}>{ this.count }</p>
         <i class="fa fa-thumbs-o-up fa-5x" on-click={this.increment}></i>
       </div>
     )
