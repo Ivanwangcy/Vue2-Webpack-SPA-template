@@ -9,7 +9,6 @@ body {
     justify-content: space-between;
     flex-flow: column;
     color: #2c3e50;
-    max-width: 600px;
     font-family: Source Sans Pro, Helvetica, sans-serif;
     text-align: center;
 
@@ -18,8 +17,11 @@ body {
       height: 200px;
     }
     .view{
-      padding-top: 50%;
       flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
     }
     .footer{
       width: 100vw;
