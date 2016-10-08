@@ -7,7 +7,7 @@ export default {
   ]),
   methods: mapActions([
     'increment'
-  ])
+  ]),
   render(h){
     return (
       <div>

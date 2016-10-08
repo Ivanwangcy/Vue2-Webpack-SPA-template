@@ -3,7 +3,7 @@
     <img class="logo" src="../assets/logo.png"/>
     <h1>
     <i class="fa fa-camera-retro"></i>
-    {{ msg }}
+    \{{ msg }}
     </h1>
   </div>
 </template>
