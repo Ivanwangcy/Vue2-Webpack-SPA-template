@@ -1,11 +1,11 @@
 var path = require('path')
 var webpack = require('webpack')
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    // publicPath: '//static-o2o.360buyimg.com/dist/', // CDN 配置
     publicPath: '/dist/',
     filename: 'build.js'
   },
@@ -25,12 +25,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css',
+        loader: 'style!css?importLoaders=1!postcss',
         exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+        test: /\.s[a|c]ss$/,
+        loader: 'style!css?importLoaders=1!postcss!sass',
+        // loaders: ['style', ['css?sourceMap&importLoaders=1&-autoprefixer', 'postcss-loader?pack=cleaner', 'sass?sourceMap']]
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -50,6 +51,13 @@ module.exports = {
       }
     ]
   },
+  vue: {
+  loaders: {
+      sass: 'style!css!postcss!sass'
+    }
+  },
+  // postcss: [ autoprefixer({ browsers: ['last 3 versions'] }) ],
+  postcss: [ autoprefixer() ],
   devServer: {
     historyApiFallback: true,
     noInfo: true,
@@ -64,7 +72,7 @@ module.exports = {
         changeOrigin: true
       },
       '/client': {
-        target: 'http://192.168.253.10:8080/',
+        target: 'http://testpdjm.jd.com/',
         secure: false,
         changeOrigin: true
       }
