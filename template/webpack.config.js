@@ -5,6 +5,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
+    // publicPath: '//static-o2o.360buyimg.com/dist/', // CDN 配置
     publicPath: '/dist/',
     filename: 'build.js'
   },
