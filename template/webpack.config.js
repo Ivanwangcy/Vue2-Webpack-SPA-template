@@ -51,7 +51,23 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    host: '0.0.0.0',
+    // quiet: true,
+    contentBase: './',
+    //其实很简单的，只要配置这个参数就可以了, 代理服务器地址
+    proxy: {
+      '/user': {
+        target: 'http://192.168.253.10:8080/',
+        secure: false,
+        changeOrigin: true
+      },
+      '/client': {
+        target: 'http://192.168.253.10:8080/',
+        secure: false,
+        changeOrigin: true
+      }
+    }
   },
   devtool: '#eval-source-map'
 }

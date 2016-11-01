@@ -13,3 +13,7 @@ export const randomTitle = (state) => {
   let index = ~~(Math.random() * titles.length)
   state.msg = titles[index]
 }
+
+export const loading = (state, isLoading) => {
+  state.isLoading = isLoading
+}
