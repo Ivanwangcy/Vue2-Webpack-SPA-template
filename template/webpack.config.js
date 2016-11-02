@@ -1,7 +1,17 @@
 var path = require('path')
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer');
-
+//获取本地IP地址
+var os = require('os');
+var IPv4,hostName;
+hostName=os.hostname();
+for(var i=0;i<os.networkInterfaces().en0.length;i++){
+    if(os.networkInterfaces().en0[i].family=='IPv4'){
+        IPv4=os.networkInterfaces().en0[i].address;
+    }
+}
+console.log('----------local IP: '+IPv4);
+console.log('----------local host: '+hostName);
 var env = process.env.NODE_ENV;
 var publicPath = env === 'production' ? '//static-o2o.360buyimg.com/dist/' : '/dist/'; // CDN配置
 
@@ -64,7 +74,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    host: '0.0.0.0',
+    host: IPv4 || '0.0.0.0',
     // quiet: true,
     contentBase: './',
     //其实很简单的，只要配置这个参数就可以了, 代理服务器地址
