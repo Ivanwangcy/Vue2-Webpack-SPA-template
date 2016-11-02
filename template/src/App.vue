@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- 过度 -->
     <transition name="fade" mode="out-in">
       <router-view class="view"></router-view>
     </transition>
