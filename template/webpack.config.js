@@ -3,15 +3,21 @@ var webpack = require('webpack')
 var autoprefixer = require('autoprefixer');
 //获取本地IP地址
 var os = require('os');
+var interfaces = os.networkInterfaces();
 var IPv4,hostName;
 hostName=os.hostname();
-for(var i=0;i<os.networkInterfaces().en0.length;i++){
-    if(os.networkInterfaces().en0[i].family=='IPv4'){
-        IPv4=os.networkInterfaces().en0[i].address;
+for (var key in interfaces) {
+  var alias = 0;
+  interfaces[key].forEach(function(details){
+    if (details.family == 'IPv4' && (key == 'en0' || os.platform() == 'win32')) {
+      IPv4 = details.address;
+      return false;
     }
+  });
 }
-console.log('----------local IP: '+IPv4);
-console.log('----------local host: '+hostName);
+console.log('----------local IP: '+ IPv4);
+console.log('----------local host: '+ hostName);
+
 var env = process.env.NODE_ENV;
 var publicPath = env === 'production' ? '//static-o2o.360buyimg.com/dist/' : '/dist/'; // CDN配置
 
