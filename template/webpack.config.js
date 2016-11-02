@@ -75,7 +75,7 @@ module.exports = {
     }
   },
   // postcss: [ autoprefixer({ browsers: ['last 3 versions'] }) ],
-  postcss: [ autoprefixer() ],
+  postcss: [ autoprefixer({browsers: ['iOS 7', 'Android 3']}) ],
   devServer: {
     historyApiFallback: true,
     noInfo: true,
