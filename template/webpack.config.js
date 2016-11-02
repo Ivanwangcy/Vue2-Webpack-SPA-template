@@ -6,15 +6,13 @@ var os = require('os');
 var interfaces = os.networkInterfaces();
 var IPv4 = '0.0.0.0'
 for (var key in interfaces) {
-  var alias = 0;
-  console.log(key)
   if(key == 'en0' || key == 'eth0' || os.platform() == 'win32'){
-	  interfaces[key].forEach(function(details){
-		if (details.family == 'IPv4') {
-		  IPv4 = details.address;
-		}
-	  });
-	  break;
+    interfaces[key].forEach(function(details){
+      if (details.family == 'IPv4') {
+        IPv4 = details.address;
+      }
+    });
+    break;
   }
 }
 console.log('----------local IP: '+ IPv4);
