@@ -1,4 +1,9 @@
+/node_modules
+/build
+/cache
+*.log
+/.idea
+/.sass-cache
+scss-lint-report.xml
+/lib
 .DS_Store
-node_modules/
-dist/
-npm-debug.log
