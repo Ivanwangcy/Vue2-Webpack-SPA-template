@@ -1,5 +1,9 @@
 # Vue2-Webpack-SPA-template
-基于Vue2 + Webpack 开发的SPA（单页应用）的模板生成项目。
+基于Vue2 + Webpack 开发的SPA（单页应用）的模板生成项目。  
+在开始之前，推荐先学习：
+- [Vue](https://vuejs.org/) 或者 [Vue 中文](https://vuefe.cn/) ;
+- [ES6 中文教程](http://es6.ruanyifeng.com/) 或者 [ES2015](http://babeljs.io/docs/learn-es2015/)。
+
 
 ## 使用命令行搭建项目环境
 需要 `nodejs` 平台，下载新版即可，[nodejs 官网](https://nodejs.org/en/)  
