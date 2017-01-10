@@ -25,3 +25,5 @@ $ cd [daojia-project] && npm install
 # 启动项目
 $ npm start
 ```
+## 启动成功页面
+![successful](./assets/successful.png)
