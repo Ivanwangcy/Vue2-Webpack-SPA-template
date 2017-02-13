@@ -12,9 +12,6 @@
 ### 项目启动
 依次执行以下命令，启动完成后，有成功与失败提示；
 ```sh
-# 全局安装包
-$ npm install -g gulp webpack webpack-dashboard eslint scss-lint
-
 # 安装依赖
 npm install
 
