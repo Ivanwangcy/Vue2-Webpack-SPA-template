@@ -27,11 +27,14 @@ module.exports = {
     publicPath: publicPath,
     filename: 'build.js'
   },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
+  resolve: {
+    modules: [
+        path.join(__dirname, 'src'),
+        'node_modules'
+    ]
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
         loader: 'vue'
@@ -70,46 +73,54 @@ module.exports = {
       }
     ]
   },
-  vue: {
-  loaders: {
-      sass: 'style!css!postcss!sass'
-    }
-  },
+    vue: {
+        loaders: {
+          sass: 'style!css!postcss!sass'
+        }
+    },
   // postcss: [ autoprefixer({ browsers: ['last 3 versions'] }) ],
-  postcss: [ autoprefixer({browsers: ['iOS 7', 'Android 3']}) ],
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true,
-    host: IPv4,
-    // quiet: true,
-    contentBase: './',
-    //其实很简单的，只要配置这个参数就可以了, 代理服务器地址
-    proxy: {
-      '/user': {
-        target: 'http://192.168.253.10:8080/',
-        secure: false,
-        changeOrigin: true
-      },
-      '/client': {
-        target: 'http://testpdjm.jd.com/',
-        secure: false,
-        changeOrigin: true
-      }
-    }
-  },
-  devtool: '#eval-source-map'
+  // postcss: [ autoprefixer({browsers: ['iOS 7', 'Android 3']}) ],
+    devServer: {
+        historyApiFallback: true,
+        noInfo: true,
+        host: IPv4,
+        // quiet: true,
+        contentBase: './',
+        //其实很简单的，只要配置这个参数就可以了, 代理服务器地址
+        proxy: {
+          '/user': {
+            target: 'http://192.168.253.10:8080/',
+            secure: false,
+            changeOrigin: true
+          },
+          '/client': {
+            target: 'http://testpdjm.jd.com/',
+            secure: false,
+            changeOrigin: true
+          }
+        }
+    },
+    devtool: '#eval-source-map',
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                context: '/',
+                postcss: [ autoprefixer({browsers: ['iOS 7', 'Android 3']}) ]
+            }
+        })
+    ]
 }
 
 if (env === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
+    // new webpack.DefinePlugin({
+    //   'process.env': {
+    //     NODE_ENV: '"production"'
+    //   }
+    // }),
+    new UglifyJsPlugin({
       compress: {
         warnings: false
       }
