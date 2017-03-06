@@ -73,11 +73,11 @@ module.exports = {
       }
     ]
   },
-    vue: {
-        loaders: {
-          sass: 'style!css!postcss!sass'
-        }
-    },
+    // vue: {
+    //     loaders: {
+    //       sass: 'style!css!postcss!sass'
+    //     }
+    // },
   // postcss: [ autoprefixer({ browsers: ['last 3 versions'] }) ],
   // postcss: [ autoprefixer({browsers: ['iOS 7', 'Android 3']}) ],
     devServer: {
