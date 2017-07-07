@@ -18,7 +18,7 @@ for (var key in interfaces) {
 console.log('----------local IP: '+ IPv4);
 
 var env = process.env.NODE_ENV;
-var publicPath = env === 'production' ? '//static-o2o.360buyimg.com/dist/' : '/dist/'; // CDN配置
+var publicPath = env === 'production' ? '//xx.xx.com/dist/' : '/dist/'; // CDN配置
 
 module.exports = {
   entry: './src/main.js',
@@ -94,7 +94,7 @@ module.exports = {
             changeOrigin: true
           },
           '/client': {
-            target: 'http://testpdjm.jd.com/',
+            target: 'http://xx.xx.com/',
             secure: false,
             changeOrigin: true
           }
